@@ -1,0 +1,2 @@
+w!= save without exiting
+q!= exit without saving

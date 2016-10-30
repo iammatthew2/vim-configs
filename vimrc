@@ -29,6 +29,9 @@ set softtabstop=2
 set expandtab
 set noshiftround
 
+" CtrlP setting:
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 "syntastic base settings. Prob update theese later
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

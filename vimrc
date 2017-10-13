@@ -28,10 +28,57 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+" Fugitive settings or general grep settings
+" autocmd QuickFixCmdPost *grep* cwindow
+
+" leveraging Fugitive for git grepping, we map to '\g' and silently display it
+" to the quickfix windo
+:nnoremap <leader>g :silent execute "Ggrep " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+
+" Quicklist mappings:
+"navigate quicklist
+:map <C-j> :cn<CR>
+:map <C-k> :cp<CR>
+
+"toggle quicklist
+:nnoremap <leader>q :call QuickfixToggle()<cr>
+
+let g:quickfix_is_open = 0
+
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+
+
+" bind K to grep word under cursor
+
+"set noremap K :silent grep! "\b\s?<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " CtrlP setting:
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+"ctrlp setting to set the top level dir that we'll search in. Bypass with ..
+let g:ctrlp_root_markers = ['.ctrlpMarker']
+
 "syntastic base settings. Prob update theese later
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

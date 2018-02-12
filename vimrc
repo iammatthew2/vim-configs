@@ -8,7 +8,7 @@ set ruler
 set encoding=utf-8
 set wrap
 set textwidth=79
-set formatoptions=tcqrn1
+set nowrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -27,6 +27,10 @@ set noshiftround
 " Navigation settings: file tree, window splitting
 " ***************************************************
 
+" Go back to previous filed edited in buffer
+nmap <leader>b :b#<CR>
+
+" Open/close nerdtree
 nmap <leader>e :NERDTreeToggle<CR>
 
 " ***************************************************

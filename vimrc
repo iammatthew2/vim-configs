@@ -6,9 +6,9 @@ set number relativenumber
 syntax on
 set ruler
 set encoding=utf-8
-set wrap
 set textwidth=79
 set nowrap
+set formatoptions-=t
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2

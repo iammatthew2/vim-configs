@@ -14,14 +14,17 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+set backspace=indent,eol,start
+set belloff=all
 
-"How to use:
+
+"How to use this vim configuration:
 "leader: not modified: \
 "show NERDTree: <leader>e
 "file search for text under cursor: <leader>g
 "toggle quickfix window: <leader>q
 "fuzzy file find with ctrlp: <C-p> and to reduce search scope, add file .ctrlpMarker to top-level scope
-
+"toggle syntastic errors view: `:lop` and `lcl` to close the location list
 
 " ***************************************************
 " Navigation settings: file tree, window splitting
@@ -91,11 +94,15 @@ nmap <leader>l :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
 nmap <leader>o :set paste!<CR>
 nnoremap <leader>x :call NumberToggle()<CR>
 
+" Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint'] " remember: must `$ eslint --init` in order to setup eslint for a new project
 
-"Airline
+" Airline settings
 set laststatus=2

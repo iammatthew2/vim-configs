@@ -15,7 +15,6 @@ set softtabstop=2
 set expandtab
 set noshiftround
 set backspace=indent,eol,start
-set belloff=all
 
 
 "How to use this vim configuration:

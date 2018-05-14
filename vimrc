@@ -17,17 +17,40 @@ set noshiftround
 set backspace=indent,eol,start
 
 
-"How to use this vim configuration:
-"leader: not modified: \
-"show NERDTree: <leader>e
-"file search for text under cursor: <leader>g
-"toggle quickfix window: <leader>q
-"fuzzy file find with ctrlp: <C-p> and to reduce search scope, add file .ctrlpMarker to top-level scope
-"toggle syntastic errors view: `:lop` and `lcl` to close the location list
+" ***************************************************
+" How to use this vim configuration:
+" ***************************************************
+" Leader: not modified: \
+" Edit this vimrc: <leader>ev
+" File search for text under cursor: <leader>g
+" Fuzzy file find with ctrlp: <C-p> and to reduce search scope, add file .ctrlpMarker to top-level scope of project
+" File Search :Ggrep someSearchParam
+" Go to previous file edited in buffer: <leader>b
+" Toggle syntastic errors view: `:lop` and `lcl` to close the location list
+" Toggle line numbering styles: <leader>l
+" Toggle quickfix window: <leader>q
+" Toggle NERDTree: <leader>e
+
+" Commands to master:
+"**************************************
+" :b fileName  - open file from buffer
+" :b# - go to previous open file
+" ctrl-z - suspend vim (access the suspended job with 'fg', view jobs with 'jobs' )
+
+" ***************************************************
+" How to Plugins:
+" ***************************************************
+" This vim instance is setup with Pathogen as the plugin manager.
+" To add a plugin:
+"  $ git submodule add https://github.com/somePackage bundle/somePackageFolderName
+"  then go to vim and tell pathogen to pull in the new docs: `:Helptags`
+" Plugins are located: ~/.vim/bundle/<pluginname>/
 
 " ***************************************************
 " Navigation settings: file tree, window splitting
 " ***************************************************
+" Edit this config
+nmap <leader>ev :vsp $MYVIMRC<CR>
 
 " Go back to previous filed edited in buffer
 nmap <leader>b :b#<CR>

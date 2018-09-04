@@ -58,6 +58,9 @@ nmap <leader>b :b#<CR>
 " Open/close nerdtree
 nmap <leader>e :NERDTreeToggle<CR>
 
+" Open current file in Chome
+nmap <leader>c :exec ':!open % -a Google\ Chrome'<CR>
+
 " ***************************************************
 " Finding/Searching and Quicklist settings
 " ***************************************************

@@ -4,6 +4,7 @@ filetype plugin indent on
 set visualbell
 set number relativenumber
 syntax on
+set background=dark
 set ruler
 set encoding=utf-8
 set textwidth=79
@@ -68,7 +69,8 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-nmap <leader>h :nohlsearch<CR>
+" Clear search highlighting
+nnoremap <silent> <leader>\ :nohlsearch <cr>
 
 " Git grepping with fugitive
 :nnoremap <leader>g :silent execute "Ggrep " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
